@@ -33,5 +33,10 @@
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.4"
   },
-  "dependencies": {}
+  "dependencies": {
+    "cors": "^2.8.4",
+    "enigma.js": "^2.2.0",
+    "jquery": "^3.2.1",
+    "ws": "^3.3.2"
+  }
 }
