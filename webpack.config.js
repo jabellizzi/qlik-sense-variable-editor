@@ -40,7 +40,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "src/html/index.html",
       filename: "index.html"
-    })
+    }),
+    new ExtractTextPlugin("styles.css")
   ],
   devtool: 'cheap-module-eval-source-map'
 }
