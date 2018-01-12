@@ -6,7 +6,7 @@ const SenseUtilities = require('../../node_modules/enigma.js/sense-utilities');
 const urlConfig = { 
     host: 'localhost', 
     port: 4848, 
-    appId: 'UI_BetsysBikes.qvf',
+    appId: 'Object Audit.qvf',
     secure: false 
 };
 
