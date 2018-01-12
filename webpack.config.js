@@ -41,7 +41,7 @@ module.exports = {
       template: "src/html/index.html",
       filename: "index.html"
     }),
-    new ExtractTextPlugin("styles.css")
+    new ExtractTextPlugin("src/css/style.css")
   ],
   devtool: 'cheap-module-eval-source-map'
 }
