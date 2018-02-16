@@ -1,6 +1,7 @@
 export const GET_VARIABLES = 'GET_VARIABLES';
 export const SET_VARIABLES = 'SET_VARIABLES';
 export const EDIT_VARIABLE = 'EDIT_VARIABLE';
+export const CANCEL_EDIT = 'CANCEL_EDIT';
 
 export function getVariables() {
   return {
@@ -15,8 +16,16 @@ export function setVariables(variables) {
   }
 }
 
-export function editVariable() {
+export function editVariable(variableId) {
   return {
-    type: EDIT_VARIABLE
+    type: EDIT_VARIABLE,
+    payload: variableId
+  }
+}
+
+export function cancelEdit(variableId) {
+  return {
+    type: CANCEL_EDIT,
+    payload: variableId
   }
 }

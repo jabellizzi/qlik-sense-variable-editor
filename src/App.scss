@@ -2,6 +2,38 @@
   margin: 20px 40px;
   width: calc(100% - 80px);
 
+  th:nth-of-type(1) {
+    width: 25%;
+  }
+
+  tbody tr td {
+    line-height: 30px;
+  }
+
+  tbody tr.editing td:nth-of-type(1),
+  tbody tr.editing td:nth-of-type(3),
+  tbody tr.editing td:nth-of-type(4) {
+    padding-top: 13px;
+  }
+
+  td .edit-container {
+    padding: 4px 4px 4px 4px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    
+    .edit-wrapper {
+      float: left;
+      width: calc(100% - 68px);
+
+      input {
+        width: 100%;
+        height: 30px;
+        border: none;
+      }
+    }
+  }
+
   td.button-container {
     width: 40px;
   }

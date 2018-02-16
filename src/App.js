@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 
 import { 
   getVariables,
-  editVariable
+  editVariable,
+  cancelEdit
 } from './actions/index';
 
 import { VariableTable } from './components/VariableTable';
@@ -13,9 +14,13 @@ import './App.css';
 
 
 class App extends Component {
-  handleEditVariable = () => {
-    this.props.editVariable();
+  handleEditVariable = (variableId) => {
+    this.props.editVariable(variableId);
   };
+
+  handelCancelEdit = (variableId) => {
+    this.props.cancelEdit(variableId);
+  }
 
   // Render
   render() {
@@ -25,6 +30,7 @@ class App extends Component {
         getVariables={ this.props.getVariables }
         editVariable={ this.handleEditVariable }
         editing={ this.props.editing }
+        cancelEdit={ this.handelCancelEdit }
       />
     );
   }
@@ -34,6 +40,7 @@ export default connect(
   state => state, // state
   { // dispatch
     getVariables, 
-    editVariable 
+    editVariable,
+    cancelEdit
   }
 )(App);

@@ -5,7 +5,8 @@ export function VariableTable({
   variables, 
   getVariables,
   editVariable,
-  editing
+  editing,
+  cancelEdit
 }) {
   return (
     <div className="variable-table">
@@ -22,9 +23,11 @@ export function VariableTable({
         <tbody>
           { variables.map(variable => (
             <VariableRow
+              key={ variable.id }
               variable={ variable }
               editVariable={ editVariable }
               editing={ editing }
+              cancelEdit={ cancelEdit }
             />
           ))}
         </tbody>
