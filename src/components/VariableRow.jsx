@@ -4,8 +4,11 @@ export function VariableRow({
   variable,
   editVariable,
   editing,
+  saveEdit,
   cancelEdit
 }) {
+  let input;
+
   return (
     <tr className={ variable.editing ? "editing" : "" }>
       <td>{ variable.name }</td>
@@ -15,11 +18,15 @@ export function VariableRow({
             <div className="edit-wrapper">
               <input
                 type="text"
+                ref={ node => { input = node; } }
                 defaultValue={ variable.definition }
               />
             </div>
-            <button type="button" className="btn btn-default btn-sm">
-              <span className="glyphicon glyphicon-floppy-save"></span>
+            <button
+              type="button" 
+              className="btn btn-default btn-sm"
+              onClick={ () => saveEdit({ id: variable.id, value: input.value }) }
+            ><span className="glyphicon glyphicon-floppy-save"></span>
             </button>
             <button 
               type="button" 

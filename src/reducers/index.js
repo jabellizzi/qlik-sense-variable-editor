@@ -1,6 +1,7 @@
 import {
   SET_VARIABLES, 
   EDIT_VARIABLE,
+  SAVED,
   CANCEL_EDIT
 } from '../actions/index';
 
@@ -40,6 +41,10 @@ export function variableReducer(state = initialState, action) {
         }),
         editing: true
       }
+
+    // Saved
+    case SAVED:
+      return state
 
     // Cancel Edit
     case CANCEL_EDIT:

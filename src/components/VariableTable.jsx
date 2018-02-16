@@ -6,6 +6,7 @@ export function VariableTable({
   getVariables,
   editVariable,
   editing,
+  saveEdit,
   cancelEdit
 }) {
   return (
@@ -27,6 +28,7 @@ export function VariableTable({
               variable={ variable }
               editVariable={ editVariable }
               editing={ editing }
+              saveEdit={ saveEdit }
               cancelEdit={ cancelEdit }
             />
           ))}

@@ -2,6 +2,7 @@
 import {
   shareReplay,
   switchMap,
+  startWith
 } from 'rxjs/operators';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/ignoreElements';
@@ -12,9 +13,11 @@ import 'rxjs/add/operator/map';
 import { connectSession } from 'rxq/connect';
 import { openDoc } from 'rxq/Global';
 import { 
-  createSessionObject
+  createSessionObject,
+  getVariableById
 } from 'rxq/Doc';
 import { getLayout } from 'rxq/GenericObject';
+import { applyPatches } from 'rxq/GenericVariable';
 
 // ========= Redux Observable =========
 import { combineEpics } from "redux-observable";
@@ -22,7 +25,9 @@ import { combineEpics } from "redux-observable";
 // ========= Actions =========
 import { 
   GET_VARIABLES,
-  setVariables
+  setVariables,
+  SAVE_EDIT,
+  saved
 } from "../actions";
 
 
@@ -61,9 +66,32 @@ function getVariablesEpic(action$) {
           qShowReserved: false
         }
       })),
+      shareReplay(1),
+      switchMap(h => h.invalidated$.pipe(
+        startWith(h)
+      )),
       switchMap(h => getLayout(h))
     ))
     .map(layout => setVariables(layout.qVariableList.qItems))
 }
 
-export const rootEpic = combineEpics(getVariablesEpic);
+
+function saveEditEpic(action$) {
+  return action$.ofType(SAVE_EDIT)
+    .switchMap((action) => doc$.pipe(
+      switchMap(h => getVariableById(h, action.payload.id)),
+      switchMap(h => applyPatches(h, [
+        {
+          qOp: 'replace',
+          qPath: '/qDefinition',
+          qValue: `"${action.payload.value}"`
+        }
+      ]))
+    ))
+    .map(() => saved())
+}
+
+export const rootEpic = combineEpics(
+  getVariablesEpic,
+  saveEditEpic
+);

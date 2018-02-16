@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { 
   getVariables,
   editVariable,
+  saveEdit,
   cancelEdit
 } from './actions/index';
 
@@ -30,6 +31,7 @@ class App extends Component {
         getVariables={ this.props.getVariables }
         editVariable={ this.handleEditVariable }
         editing={ this.props.editing }
+        saveEdit={ this.props.saveEdit }
         cancelEdit={ this.handelCancelEdit }
       />
     );
@@ -41,6 +43,7 @@ export default connect(
   { // dispatch
     getVariables, 
     editVariable,
+    saveEdit,
     cancelEdit
   }
 )(App);
