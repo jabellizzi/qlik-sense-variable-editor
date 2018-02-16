@@ -6,7 +6,8 @@ import {
   getVariables,
   editVariable,
   saveEdit,
-  cancelEdit
+  cancelEdit,
+  deleteVariable
 } from './actions/index';
 
 import { VariableTable } from './components/VariableTable';
@@ -19,8 +20,12 @@ class App extends Component {
     this.props.editVariable(variableId);
   };
 
-  handelCancelEdit = (variableId) => {
+  handleCancelEdit = (variableId) => {
     this.props.cancelEdit(variableId);
+  }
+
+  handleDeleteVariable = (variableId) => {
+    this.props.deleteVariable(variableId);
   }
 
   // Render
@@ -32,7 +37,8 @@ class App extends Component {
         editVariable={ this.handleEditVariable }
         editing={ this.props.editing }
         saveEdit={ this.props.saveEdit }
-        cancelEdit={ this.handelCancelEdit }
+        cancelEdit={ this.handleCancelEdit }
+        deleteVariable={ this.handleDeleteVariable }
       />
     );
   }
@@ -44,6 +50,7 @@ export default connect(
     getVariables, 
     editVariable,
     saveEdit,
-    cancelEdit
+    cancelEdit,
+    deleteVariable
   }
 )(App);

@@ -1,20 +1,18 @@
 // ========= RxJS =========
+import { Observable } from 'rxjs';
 import {
   shareReplay,
   switchMap,
   startWith
 } from 'rxjs/operators';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/ignoreElements';
-import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/map';
 
 // ========= RxQ =========
 import { connectSession } from 'rxq/connect';
 import { openDoc } from 'rxq/Global';
 import { 
   createSessionObject,
-  getVariableById
+  getVariableById,
+  destroyVariableById
 } from 'rxq/Doc';
 import { getLayout } from 'rxq/GenericObject';
 import { applyPatches } from 'rxq/GenericVariable';
@@ -27,7 +25,9 @@ import {
   GET_VARIABLES,
   setVariables,
   SAVE_EDIT,
-  saved
+  saved,
+  DELETE_VARIABLE,
+  deleted
 } from "../actions";
 
 
@@ -49,6 +49,7 @@ const doc$ = session$.pipe(
 );
 
 
+// Get Variables Epic
 function getVariablesEpic(action$) {
   return action$.ofType(GET_VARIABLES)
     .switchMap(() => doc$.pipe(
@@ -76,6 +77,7 @@ function getVariablesEpic(action$) {
 }
 
 
+// Save Edit Epic
 function saveEditEpic(action$) {
   return action$.ofType(SAVE_EDIT)
     .switchMap((action) => doc$.pipe(
@@ -88,10 +90,22 @@ function saveEditEpic(action$) {
         }
       ]))
     ))
-    .map(() => saved())
+    // .map(() => saved());
+    .switchMap(() => Observable.of(saved()));
+}
+
+
+// Delete Variable Epic
+function deleteVariableEpic(action$) {
+  return action$.ofType(DELETE_VARIABLE)
+    .switchMap((action) => doc$.pipe(
+      switchMap(h => destroyVariableById(h, action.payload))
+    ))
+    .switchMap(() => Observable.of(deleted()));
 }
 
 export const rootEpic = combineEpics(
   getVariablesEpic,
-  saveEditEpic
+  saveEditEpic,
+  deleteVariableEpic
 );

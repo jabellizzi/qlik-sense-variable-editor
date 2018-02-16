@@ -7,7 +7,8 @@ export function VariableTable({
   editVariable,
   editing,
   saveEdit,
-  cancelEdit
+  cancelEdit,
+  deleteVariable
 }) {
   return (
     <div className="variable-table">
@@ -30,6 +31,7 @@ export function VariableTable({
               editing={ editing }
               saveEdit={ saveEdit }
               cancelEdit={ cancelEdit }
+              deleteVariable={ deleteVariable }
             />
           ))}
         </tbody>

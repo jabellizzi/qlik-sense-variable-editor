@@ -2,7 +2,8 @@ import {
   SET_VARIABLES, 
   EDIT_VARIABLE,
   SAVED,
-  CANCEL_EDIT
+  CANCEL_EDIT,
+  DELETED
 } from '../actions/index';
 
 const initialState = {
@@ -44,7 +45,10 @@ export function variableReducer(state = initialState, action) {
 
     // Saved
     case SAVED:
-      return state
+      return {
+        ...state,
+        editing: false
+      };
 
     // Cancel Edit
     case CANCEL_EDIT:
@@ -61,6 +65,10 @@ export function variableReducer(state = initialState, action) {
         }),
         editing: false
       }
+
+    // Deleted
+    case DELETED:
+      return state;
 
     // Default
     default: return state;

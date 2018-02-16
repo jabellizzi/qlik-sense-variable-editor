@@ -5,7 +5,8 @@ export function VariableRow({
   editVariable,
   editing,
   saveEdit,
-  cancelEdit
+  cancelEdit,
+  deleteVariable
 }) {
   let input;
 
@@ -47,8 +48,11 @@ export function VariableRow({
         </button>
       </td>
       <td className="button-container">
-        <button type="button" className="btn btn-default btn-sm">
-          <span className="glyphicon glyphicon-trash"></span>
+        <button 
+          type="button" 
+          className="btn btn-default btn-sm"
+          onClick={ () => deleteVariable(variable.id) }
+        ><span className="glyphicon glyphicon-trash"></span>
         </button>
       </td>
     </tr>
