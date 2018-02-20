@@ -15,11 +15,6 @@ export function VariableTable({
   return (
     <div className="variable-table">
       <button type="button" className="btn btn-primary" onClick={ getVariables }>Get Variables</button>
-      { appState.appConnected && <button
-        type="button"
-        className="create-variable-button btn btn-primary"
-        onClick={ createNew }
-      >Create New</button> }
 
       <table className="table table-hover">
         <thead>
@@ -32,10 +27,14 @@ export function VariableTable({
           </tr>
         </thead>
         <tbody>
-          <tr className="create-new-row">
+          {/* Create New Row */}
+          { appState.appConnected && <tr className="create-new-row">
+            {/* Name */}
             <td>
               <input type="text" placeholder="Name" />
             </td>
+
+            {/* Definition */}
             <td>
               <div className="definition-edit-container">
                 <input type="text" placeholder="Definition" />
@@ -45,9 +44,13 @@ export function VariableTable({
                 ><span className="glyphicon glyphicon-pencil"></span></button>
               </div>
             </td>
+
+            {/* Tags */}
             <td>
               <input type="text" placeholder="Tags" />
             </td>
+
+            {/* Create Button */}
             <td>
               <button
                 type="button"
@@ -55,13 +58,16 @@ export function VariableTable({
               ><span className="glyphicon glyphicon-plus"></span>
               </button>
             </td>
+
+            {/* Clear Button */}
             <td>
               <button
                 type="button"
                 className="btn btn-default btn-sm"
               ><span className="glyphicon glyphicon-remove-sign"></span></button>
             </td>
-          </tr>
+          </tr> }
+
           { variables.map(variable => (
             <VariableRow
               key={ variable.id }
