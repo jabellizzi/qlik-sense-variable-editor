@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import { 
   getVariables,
+  createNew,
   editVariable,
   saveEdit,
   cancelEdit,
@@ -32,8 +33,10 @@ class App extends Component {
   render() {
     return (
       <VariableTable 
+        appState={ this.props }
         variables={ this.props.variables }
         getVariables={ this.props.getVariables }
+        createNew={ this.props.createNew }
         editVariable={ this.handleEditVariable }
         editing={ this.props.editing }
         saveEdit={ this.props.saveEdit }
@@ -47,7 +50,8 @@ class App extends Component {
 export default connect(
   state => state, // state
   { // dispatch
-    getVariables, 
+    getVariables,
+    createNew,
     editVariable,
     saveEdit,
     cancelEdit,

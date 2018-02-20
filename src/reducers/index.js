@@ -1,5 +1,6 @@
 import {
-  SET_VARIABLES, 
+  SET_VARIABLES,
+  CREATE_NEW,
   EDIT_VARIABLE,
   SAVED,
   CANCEL_EDIT,
@@ -8,7 +9,9 @@ import {
 
 const initialState = {
   variables: [],
-  editing: false
+  appConnected: false,
+  editing: false,
+  creating: false
 };
 
 export function variableReducer(state = initialState, action) {
@@ -24,7 +27,14 @@ export function variableReducer(state = initialState, action) {
             id: variable.qInfo.qId,
             editing: false
           }
-        })
+        }),
+        appConnected: true
+      }
+
+    case CREATE_NEW:
+      return {
+        ...state,
+        creating: true
       }
 
     // Edit Variable

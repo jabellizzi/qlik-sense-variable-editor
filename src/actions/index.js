@@ -1,4 +1,5 @@
 export const GET_VARIABLES = 'GET_VARIABLES';
+export const CREATE_NEW = 'CREATE_NEW';
 export const SET_VARIABLES = 'SET_VARIABLES';
 export const EDIT_VARIABLE = 'EDIT_VARIABLE';
 export const SAVE_EDIT = 'SAVE_EDIT';
@@ -10,6 +11,12 @@ export const DELETED = 'DELETED';
 export function getVariables() {
   return {
     type: GET_VARIABLES
+  }
+}
+
+export function createNew() {
+  return {
+    type: CREATE_NEW
   }
 }
 

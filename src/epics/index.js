@@ -27,7 +27,8 @@ import {
   SAVE_EDIT,
   saved,
   DELETE_VARIABLE,
-  deleted
+  deleted,
+  CREATE_NEW
 } from "../actions";
 
 
@@ -75,6 +76,13 @@ function getVariablesEpic(action$) {
     ))
     .map(layout => setVariables(layout.qVariableList.qItems))
 }
+
+
+// Create New Epic
+// function createNewEpic(action$) {
+//   return action$.ofType(CREATE_NEW)
+//     .switchMap(() )
+// }
 
 
 // Save Edit Epic
