@@ -26,11 +26,42 @@ export function VariableTable({
           <tr>
             <th>Variable</th>
             <th>Definition</th>
+            <th>Tags</th>
             <th></th>
             <th></th>
           </tr>
         </thead>
         <tbody>
+          <tr className="create-new-row">
+            <td>
+              <input type="text" placeholder="Name" />
+            </td>
+            <td>
+              <div className="definition-edit-container">
+                <input type="text" placeholder="Definition" />
+                <button
+                  type="button"
+                  className="btn btn-default btn-sm"
+                ><span className="glyphicon glyphicon-pencil"></span></button>
+              </div>
+            </td>
+            <td>
+              <input type="text" placeholder="Tags" />
+            </td>
+            <td>
+              <button
+                type="button"
+                className="btn btn-default btn-sm"
+              ><span className="glyphicon glyphicon-plus"></span>
+              </button>
+            </td>
+            <td>
+              <button
+                type="button"
+                className="btn btn-default btn-sm"
+              ><span className="glyphicon glyphicon-remove-sign"></span></button>
+            </td>
+          </tr>
           { variables.map(variable => (
             <VariableRow
               key={ variable.id }

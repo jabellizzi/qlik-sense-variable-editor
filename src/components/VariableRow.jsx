@@ -12,7 +12,10 @@ export function VariableRow({
 
   return (
     <tr className={ variable.editing ? "editing" : "" }>
+      {/* Variable Name */}
       <td>{ variable.name }</td>
+
+      {/* Variable Definition */}
       { variable.editing ? 
         <td>
           <div className="edit-container">
@@ -39,6 +42,13 @@ export function VariableRow({
         </td>
         : <td>{ variable.definition }</td>
       }
+
+      {/* Variable Tags */}
+      <td>
+        Tags
+      </td>
+
+      {/* Edit Button */}
       <td className="button-container">
         <button
           type="button"
@@ -47,6 +57,8 @@ export function VariableRow({
         ><span className="glyphicon glyphicon-pencil"></span>
         </button>
       </td>
+
+      {/* Delete Button */}
       <td className="button-container">
         <button 
           type="button" 
