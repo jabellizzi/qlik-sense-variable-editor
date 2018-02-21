@@ -20,6 +20,11 @@
         width: 100%;
         border: 1px solid #eee;
         border-radius: 3px;
+
+        &:focus {
+          outline: none;
+          border: 1px solid #52a2cc;
+        }
       }
 
       .definition-edit-container {

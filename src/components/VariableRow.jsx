@@ -2,11 +2,7 @@ import React from 'react';
 
 export function VariableRow({
   variable,
-  editVariable,
-  editing,
-  saveEdit,
-  cancelEdit,
-  deleteVariable
+  appState
 }) {
   let input;
 
@@ -29,13 +25,13 @@ export function VariableRow({
             <button
               type="button" 
               className="btn btn-default btn-sm"
-              onClick={ () => saveEdit({ id: variable.id, value: input.value }) }
+              onClick={ () => appState.saveEdit({ id: variable.id, value: input.value }) }
             ><span className="glyphicon glyphicon-floppy-save"></span>
             </button>
             <button 
               type="button" 
               className="btn btn-default btn-sm"
-              onClick={ () => cancelEdit(variable.id) }
+              onClick={ () => appState.cancelEdit(variable.id) }
             ><span className="glyphicon glyphicon-remove-circle"></span>
             </button>
           </div>
@@ -52,8 +48,8 @@ export function VariableRow({
       <td className="button-container">
         <button
           type="button"
-          className={ "btn btn-default btn-sm " +(editing ? "disabled" : "") }
-          onClick={ () => editing ? null : editVariable(variable.id) }
+          className={ "btn btn-default btn-sm " +(appState.editing ? "disabled" : "") }
+          onClick={ () => appState.editing ? null : appState.editVariable(variable.id) }
         ><span className="glyphicon glyphicon-pencil"></span>
         </button>
       </td>
@@ -63,7 +59,7 @@ export function VariableRow({
         <button 
           type="button" 
           className="btn btn-default btn-sm"
-          onClick={ () => deleteVariable(variable.id) }
+          onClick={ () => appState.deleteVariable(variable.id) }
         ><span className="glyphicon glyphicon-trash"></span>
         </button>
       </td>

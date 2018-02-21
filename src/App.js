@@ -17,32 +17,10 @@ import './App.css';
 
 
 class App extends Component {
-  handleEditVariable = (variableId) => {
-    this.props.editVariable(variableId);
-  };
-
-  handleCancelEdit = (variableId) => {
-    this.props.cancelEdit(variableId);
-  }
-
-  handleDeleteVariable = (variableId) => {
-    this.props.deleteVariable(variableId);
-  }
-
   // Render
   render() {
     return (
-      <VariableTable 
-        appState={ this.props }
-        variables={ this.props.variables }
-        getVariables={ this.props.getVariables }
-        createNew={ this.props.createNew }
-        editVariable={ this.handleEditVariable }
-        editing={ this.props.editing }
-        saveEdit={ this.props.saveEdit }
-        cancelEdit={ this.handleCancelEdit }
-        deleteVariable={ this.handleDeleteVariable }
-      />
+      <VariableTable appState={ this.props }/>
     );
   }
 }
