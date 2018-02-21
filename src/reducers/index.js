@@ -1,6 +1,5 @@
 import {
   SET_VARIABLES,
-  CREATE_NEW,
   EDIT_VARIABLE,
   SAVED,
   CANCEL_EDIT,
@@ -10,16 +9,18 @@ import {
 const initialState = {
   variables: [],
   appConnected: false,
-  editing: false,
-  creating: false
+  editing: false
 };
 
 export function variableReducer(state = initialState, action) {
   switch(action.type) {
-    // Set Variables
+    /* ================
+        Set Variables
+    ================ */
     case SET_VARIABLES:
       return {
         ...state,
+        // map variables into custom format
         variables: action.payload.map(variable => {
           return {
             name: variable.qName,
@@ -28,21 +29,22 @@ export function variableReducer(state = initialState, action) {
             editing: false
           }
         }),
+        // view is now connected to an app
         appConnected: true
       }
 
-    case CREATE_NEW:
-      return {
-        ...state,
-        creating: true
-      }
 
-    // Edit Variable
+    /* ================
+        Edit Variable
+    ================ */
     case EDIT_VARIABLE:
       return {
         ...state,
+        // for each variable..
         variables: state.variables.map(variable => {
+          // if this is the variable we are editing..
           if(action.payload === variable.id) {
+            // set it's editing state to true
             return {
               ...variable,
               editing: true
@@ -50,37 +52,56 @@ export function variableReducer(state = initialState, action) {
           }
           return variable;
         }),
+        // Set overall editing state to true
         editing: true
       }
 
-    // Saved
+
+    /* ================
+        Saved
+    ================ */
     case SAVED:
       return {
         ...state,
+        /* Once variable has been saved, set the 
+            overall editing state to false */
         editing: false
       };
 
-    // Cancel Edit
+
+    /* ================
+        Cancel Edit
+    ================ */
     case CANCEL_EDIT:
       return {
         ...state,
+        // for each variable..
         variables: state.variables.map(variable => {
+          // if this is the variable we were editing..
           if(action.payload === variable.id) {
             return {
               ...variable,
+              // set its edit state to false
               editing: false
             }
           }
           return variable;
         }),
+        // set overall edit state to false
         editing: false
       }
 
-    // Deleted
+
+    /* ================
+        Deleted
+    ================ */
     case DELETED:
       return state;
 
-    // Default
+
+    /* ================
+        Default
+    ================ */
     default: return state;
   }
 }
