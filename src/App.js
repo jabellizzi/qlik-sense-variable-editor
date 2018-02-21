@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { 
   getVariables,
-  createNew,
+  createVariable,
   editVariable,
   saveEdit,
   cancelEdit,
@@ -29,7 +29,7 @@ export default connect(
   state => state, // state
   { // dispatch
     getVariables,
-    createNew,
+    createVariable,
     editVariable,
     saveEdit,
     cancelEdit,

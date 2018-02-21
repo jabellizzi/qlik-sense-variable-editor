@@ -3,7 +3,8 @@ import {
   EDIT_VARIABLE,
   SAVED,
   CANCEL_EDIT,
-  DELETED
+  DELETED,
+  CREATED
 } from '../actions/index';
 
 const initialState = {
@@ -54,6 +55,15 @@ export function variableReducer(state = initialState, action) {
         }),
         // Set overall editing state to true
         editing: true
+      }
+
+
+    /* ================
+        Created Variable
+    ================ */
+    case CREATED:
+      return {
+        ...state
       }
 
 

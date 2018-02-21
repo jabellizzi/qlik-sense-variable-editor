@@ -1,6 +1,7 @@
 export const GET_VARIABLES = 'GET_VARIABLES';
 export const SET_VARIABLES = 'SET_VARIABLES';
-export const CREATE_NEW = 'CREATE_NEW';
+export const CREATE_VARIABLE = 'CREATE_VARIABLE';
+export const CREATED = 'CREATED';
 export const EDIT_VARIABLE = 'EDIT_VARIABLE';
 export const SAVE_EDIT = 'SAVE_EDIT';
 export const SAVED = 'SAVED';
@@ -24,9 +25,17 @@ export function setVariables(variables) {
 }
 
 // Create New
-export function createNew() {
+export function createVariable(newVariable) {
   return {
-    type: CREATE_NEW
+    type: CREATE_VARIABLE,
+    payload: newVariable
+  }
+}
+
+// Created
+export function created() {
+  return {
+    type: CREATED
   }
 }
 

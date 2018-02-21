@@ -22,7 +22,7 @@ export function VariableTable({ appState }) {
         {/* Body */}
         <tbody>
           {/* Create New Row */}
-          { appState.appConnected && <CreateNewRow /> }
+          { appState.appConnected && <CreateNewRow appState={ appState } /> }
 
           { appState.variables.map(variable => (
             <VariableRow

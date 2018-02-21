@@ -1,10 +1,9 @@
-// // ========= RxJS =========
+// ========= RxJS =========
 import { Observable } from 'rxjs';
-import {
-  switchMap
-} from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
+import { empty } from 'rxjs/observable/empty';
 
-// // ========= RxQ =========
+// ========= RxQ =========
 import { destroyVariableById } from 'rxq/Doc';
 
 // ========= Actions =========
@@ -20,5 +19,5 @@ export default function deleteVariableEpic(action$) {
     .switchMap((action) => doc$.pipe(
       switchMap(h => destroyVariableById(h, action.payload))
     ))
-    .switchMap(() => Observable.of(deleted()));
+    .switchMap(() => empty())
 }
