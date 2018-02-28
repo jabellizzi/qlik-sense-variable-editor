@@ -1,0 +1,7 @@
+const OPEN_APP = 'OPEN_APP';
+const STORE_APP_HANDLE = 'STORE_APP_HANDLE';
+
+export {
+  OPEN_APP,
+  STORE_APP_HANDLE
+}

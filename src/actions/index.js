@@ -31,13 +31,6 @@ export function createVariable(newVariable) {
   }
 }
 
-// Created
-export function created() {
-  return {
-    type: CREATED
-  }
-}
-
 // Edit Variable
 export function editVariable(variableId) {
   return {

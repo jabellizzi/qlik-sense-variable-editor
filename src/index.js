@@ -6,18 +6,20 @@ import { Provider } from 'react-redux';
 import { createEpicMiddleware } from 'redux-observable';
 
 // ========= Resources =========
-import reducer from './reducers/index';
-import { rootEpic } from './epics/index';
+import rootReducer from './ducks/rootReducer';
+import rootEpic from './ducks/rootEpic';
 import './index.css';
-import App from './App.js';
+import App from './App.jsx';
 import registerServiceWorker from './registerServiceWorker';
+
+import './ducks/OpenAppDuck/epics';
 
 const epicMiddleware = createEpicMiddleware(rootEpic);
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
-  reducer,
+  rootReducer,
   composeEnhancers(
     applyMiddleware(epicMiddleware)
   )
