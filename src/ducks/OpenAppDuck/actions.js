@@ -1,15 +1,16 @@
 import * as types from './types';
 
-const openApp = (appId) => ({
-  type: types.OPEN_APP
+const openDoc = (appId) => ({
+  type: types.OPEN_DOC,
+  payload: appId
 });
 
-const storeAppHandle = (handle) => ({
-  type: types.STORE_APP_HANDLE,
-  payload: handle
-})
+const storeAppName = (name) => ({
+  type: types.STORE_APP_NAME,
+  payload: name
+});
 
 export {
-  openApp,
-  storeAppHandle
-}
+  openDoc,
+  storeAppName
+};

@@ -1,13 +1,11 @@
 import { combineReducers } from 'redux';
 
 import {
-  openAppReducer,
-  storeAppHandleReducer
+  storeAppNameReducer
 } from './OpenAppDuck/reducers';
 
 const rootReducer = combineReducers({
-  openAppReducer,
-  storeAppHandleReducer
+  storeAppNameReducer
 });
 
 export default rootReducer;

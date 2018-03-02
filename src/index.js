@@ -8,6 +8,8 @@ import { createEpicMiddleware } from 'redux-observable';
 // ========= Resources =========
 import rootReducer from './ducks/rootReducer';
 import rootEpic from './ducks/rootEpic';
+// import { epic$ } from './ducks/rootEpic';
+// import { openDocEpic } from './ducks/OpenAppDuck/epics';
 import './index.css';
 import App from './App.jsx';
 import registerServiceWorker from './registerServiceWorker';
@@ -24,6 +26,8 @@ const store = createStore(
     applyMiddleware(epicMiddleware)
   )
 )
+
+// epic$.next(openDocEpic);
 
 ReactDOM.render(
   <Provider store={ store }>

@@ -1,7 +1,11 @@
 // ========== React ==========
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
+import serverConfig from './config/server.config.json';
+import SessionWrapper from './ducks/SessionWrapper/SessionWrapper';
+
+import './App.css';
 // import {
 //   getVariables,
 //   createVariable,
@@ -16,18 +20,17 @@ import { connect } from 'react-redux';
 
 // import { VariableTable } from './components/VariableTable';
 
-import OpenAppButton from './ducks/OpenAppDuck/Component';
-
-import './App.css';
+// import OpenAppButton from './ducks/OpenAppDuck/Component';
 
 
 class App extends Component {
   // Render
   render() {
     return (
-      <div>
-        <OpenAppButton appId='db8433fa-55bd-4420-9bb3-03ca764f5511' />
-      </div>
+      <SessionWrapper config={ serverConfig }>
+
+      </SessionWrapper>
+      // <OpenAppButton appId='db8433fa-55bd-4420-9bb3-03ca764f5511' />
       // <VariableTable appState={ this.props }/>
     );
   }
