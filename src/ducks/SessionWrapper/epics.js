@@ -1,16 +1,40 @@
+/* ===========================
+    Import
+=========================== */
+// ========= RxJS =========
+// Operators
 import { shareReplay } from 'rxjs/operators';
-import { empty } from 'rxjs/observable/empty';
 
+// Pipe Operators
+import 'rxjs/add/operator/switchMap';
+
+
+// ========= RxQ =========
 import { connectSession } from 'rxq/connect';
 
+
+// SessionWrapper Types
 import * as types from './types';
 
-const createSessionEpic = (action$) => {
-  return action$.ofType(types.CREATE_SESSION)
+
+/* ===========================
+    Connect Session Epic
+=========================== */
+const connectSessionEpic = (action$) => {
+  return action$.ofType(types.CONNECT_SESSION)
+    // Use server config to connect to session
     .switchMap(action => connectSession(action.payload).pipe(
       shareReplay(1)
     ))
-    .switchMap(() => empty())
+    /* return
+        - SESSION_CONNECTED action
+        - session handle
+    */
+    .map(h => ({ 
+      type: types.SESSION_CONNECTED, 
+      handle: h 
+    }));
 };
 
-export { createSessionEpic };
+
+export { connectSessionEpic };

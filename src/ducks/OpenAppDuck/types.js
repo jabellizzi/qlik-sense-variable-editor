@@ -1,7 +1,0 @@
-const OPEN_DOC = 'OPEN_DOC';
-const STORE_APP_NAME = 'STORE_APP_NAME';
-
-export {
-  OPEN_DOC,
-  STORE_APP_NAME
-}

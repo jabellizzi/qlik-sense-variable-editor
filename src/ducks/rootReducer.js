@@ -1,11 +1,21 @@
+/* ===========================
+    Import
+=========================== */
+// React/Redux
 import { combineReducers } from 'redux';
 
-import {
-  storeAppNameReducer
-} from './OpenAppDuck/reducers';
+// SessionWrapper Reducers
+import { sessionState } from './SessionWrapper/reducers';
+// OpenDoc Reducers
+import { documentState } from './OpenDoc/reducers';
 
+
+/* ===========================
+    Reducer
+=========================== */
 const rootReducer = combineReducers({
-  storeAppNameReducer
+  sessionState,
+  documentState
 });
 
 export default rootReducer;

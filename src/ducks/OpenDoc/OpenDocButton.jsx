@@ -1,10 +1,17 @@
+/* ===========================
+    Import
+=========================== */
+// React
 import React, { Component } from 'react';
-
 import { connect } from 'react-redux';
 
+// OpenDoc actions
 import { openDoc } from './actions';
 
 
+/* ===========================
+    OpenDocButton Component
+=========================== */
 class OpenDocButton extends Component {
   render() {
     return (
@@ -18,6 +25,10 @@ class OpenDocButton extends Component {
   }
 }
 
+
+/* ===========================
+    Redux
+=========================== */
 const mapStateToProps = (state) => state;
 
 const mapDispatchToProps = {

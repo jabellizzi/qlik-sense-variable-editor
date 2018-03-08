@@ -1,15 +1,24 @@
+/* ===========================
+    Import
+=========================== */
+// React
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
+// SessionWrapper actions
 import * as actions from './actions';
-import OpenDocButton from '../OpenAppDuck/OpenDocButton';
+// OpenDocButton Component
+import OpenDocButton from '../OpenDoc/OpenDocButton';
 
 
 /* =========================
-    React Class
+    SessionWrapper Component
 ========================= */
 class SessionWrapper extends Component {
+  // when component did mount..
   componentDidMount() {
-    this.props.createSession(this.props.config);
+    // connect to session
+    this.props.connectSession(this.props.config);
   }
 
   render() {
@@ -27,7 +36,7 @@ class SessionWrapper extends Component {
 const mapStateToProps = state => state;
 
 const mapDispatchToProps = {
-  createSession: actions.createSession
+  connectSession: actions.connectSession
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SessionWrapper);
