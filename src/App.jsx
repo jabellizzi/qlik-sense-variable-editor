@@ -8,8 +8,6 @@ import React, { Component } from 'react';
 import serverConfig from './config/server.config.json';
 // SessionWrapper component
 import SessionWrapper from './ducks/SessionWrapper/SessionWrapper';
-// CSS
-import './App.css';
 
 
 /* ===========================
