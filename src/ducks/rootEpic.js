@@ -4,10 +4,10 @@
 // React/Redux
 import { combineEpics } from "redux-observable";
 
-// SessionWrapper Epic
+// Epics
 import { connectSessionEpic } from './SessionWrapper/epics';
-// OpenDoc Epic
 import { openDocEpic } from './OpenDoc/epics';
+import { getVariablesEpic } from './VariableObject/epics';
 
 
 /* ===========================
@@ -15,7 +15,8 @@ import { openDocEpic } from './OpenDoc/epics';
 =========================== */
 const rootEpic = combineEpics(
 	connectSessionEpic,
-	openDocEpic
+    openDocEpic,
+    getVariablesEpic
 );
 
 export default rootEpic;

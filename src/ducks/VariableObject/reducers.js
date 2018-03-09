@@ -10,20 +10,17 @@ import * as types from './types';
 =========================== */
 // Initial state
 const initialState = {
-  open: false,
-  name: null
+  variableList: []
 };
 
-/* Document State
-    is doc opened?
-    doc name
+/* VariableObject State
+    - array of variables
 */
-const documentState = (state = initialState, action) => {
+const variableObjectState = (state = initialState, action) => {
   switch(action.type) {
-    // if DOC_OPENED..
-    case types.DOC_OPENED: return {
-      open: true,
-      name: action.payload
+    // when VARIABLES_RECEIVED..
+    case types.VARIABLES_RECEIVED: return {
+      variableList: action.payload
     }
 
     default: return state;
@@ -31,5 +28,5 @@ const documentState = (state = initialState, action) => {
 };
 
 export {
-  documentState
+  variableObjectState
 };

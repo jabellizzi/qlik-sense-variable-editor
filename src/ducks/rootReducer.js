@@ -4,10 +4,10 @@
 // React/Redux
 import { combineReducers } from 'redux';
 
-// SessionWrapper Reducers
+// Reducers
 import { sessionState } from './SessionWrapper/reducers';
-// OpenDoc Reducers
 import { documentState } from './OpenDoc/reducers';
+import { variableObjectState } from './VariableObject/reducers';
 
 
 /* ===========================
@@ -15,7 +15,8 @@ import { documentState } from './OpenDoc/reducers';
 =========================== */
 const rootReducer = combineReducers({
   sessionState,
-  documentState
+  documentState,
+  variableObjectState
 });
 
 export default rootReducer;

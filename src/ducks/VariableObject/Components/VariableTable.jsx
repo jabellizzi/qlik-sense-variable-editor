@@ -5,6 +5,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+// VariableObject Actions
+import * as actions from '../actions';
 // CreateNewRow Component
 import CreateNewRow from './CreateNewRow';
 
@@ -15,7 +17,13 @@ import './css/VariableTable.css';
     VariableTable Component
 =========================== */
 class VariableTable extends Component {
+  // When component mounts..
+  componentDidMount() {
+    // Get doc variables
+    this.props.getVariables();
+  }
   render() {
+    console.log(this.props);
     return (
       <div>
         <table className="table table-hover">
@@ -47,7 +55,7 @@ class VariableTable extends Component {
 const mapStateToProps = state => state;
 
 const mapDispatchToProps = {
-
+  getVariables: actions.getVariables
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(VariableTable);

@@ -2,17 +2,18 @@
     Import
 =========================== */
 // ========= RxJS =========
+// import { Observable } from 'rxjs';
 // Operators
-import {
-  shareReplay,
-  map
-} from 'rxjs/operators';
-
-// Pipe Operators
 import 'rxjs/add/operator/withLatestFrom';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/ignoreElements';
 import 'rxjs/add/operator/map';
+
+// Pipe Operators
+import {
+  shareReplay,
+  map
+} from 'rxjs/operators';
 
 
 // ========= RxQ =========
@@ -45,7 +46,8 @@ const openDocEpic = (action$, state$) => {
       map(props => ({
         name: props.qTitle,
         handle: h
-      }))
+      })),
+      shareReplay(1)
     ))
     /* return
         - DOC_OPENED action
@@ -53,10 +55,10 @@ const openDocEpic = (action$, state$) => {
         - doc handle
     */
     .map(doc => ({ 
-      type: 'DOC_OPENED', 
+      type: types.DOC_OPENED,
       payload: doc.name,
       handle: doc.handle
-    }) )
+    }))
 }
 
 export { openDocEpic };
