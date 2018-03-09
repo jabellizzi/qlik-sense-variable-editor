@@ -9,6 +9,8 @@ import { connect } from 'react-redux';
 import * as actions from './actions';
 // OpenDocButton Component
 import OpenDocButton from '../OpenDoc/OpenDocButton';
+// VariableTable Component
+import VariableTable from '../VariableObject/Components/VariableTable';
 
 
 /* =========================
@@ -25,6 +27,7 @@ class SessionWrapper extends Component {
     return (
       <div>
         <OpenDocButton appId="db8433fa-55bd-4420-9bb3-03ca764f5511" />
+        { this.props.documentState.open && <VariableTable /> }
       </div>
     )
   }
