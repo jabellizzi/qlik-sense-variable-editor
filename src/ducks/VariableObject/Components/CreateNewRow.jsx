@@ -5,6 +5,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+// CSS
+import './css/CreateNewRow.css';
+
 
 /* ===========================
     CreateNewRow Component
@@ -37,6 +40,11 @@ class CreateNewRow extends Component {
               className="btn btn-default btn-sm"
             ><span className="glyphicon glyphicon-pencil"></span></button>
           </div>
+        </td>
+
+        {/* Tags */}
+        <td>
+          <input type="text" placeholder="Tags" />
         </td>
 
         {/* Create Button */}

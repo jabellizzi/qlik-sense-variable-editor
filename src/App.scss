@@ -1,0 +1,223 @@
+// .create-variable-button {
+//   float: right;
+//   margin: 40px 40px 0 0;
+// }
+
+// .table {
+//   margin: 20px 40px;
+//   width: calc(100% - 80px);
+
+//   th:nth-of-type(1) {
+//     width: 25%;
+//   }
+
+//   tr.create-new-row {
+//     td {
+//       padding-left: 4px;
+
+//       input {
+//         padding: 4px;
+//         width: 100%;
+//         border: 1px solid #eee;
+//         border-radius: 3px;
+
+//         &:focus {
+//           outline: none;
+//           border: 1px solid #52a2cc;
+//         }
+//       }
+
+//       .definition-edit-container {
+//         background-color: #fff;
+//         border: 1px solid #eee;
+//         border-radius: 3px;
+
+//         &:focus-within {
+//           border: 1px solid #52a2cc;
+//         }
+
+//         input {
+//           width: calc(100% - 34px);
+//           border: none;
+
+//           &:focus {
+//             outline: none;
+//           }
+//         }
+
+//         button {
+//           border: none;
+//         }
+//       }
+//     }
+
+//     td:nth-of-type(4),
+//     td:nth-of-type(5) {
+//       padding-top: 12px;
+//       padding-left: 8px;
+//     }
+//   }
+
+//   tbody tr td {
+//     line-height: 30px;
+//   }
+
+//   tbody tr.editing td:nth-of-type(1),
+//   tbody tr.editing td:nth-of-type(3),
+//   tbody tr.editing td:nth-of-type(4),
+//   tbody tr.editing td:nth-of-type(5) {
+//     padding-top: 13px;
+//   }
+
+//   tbody tr.editing td:nth-of-type(2) {
+//     padding-left: 4px;
+
+//     .edit-container:focus-within {
+//       border: 1px solid #52a2cc;
+//     }
+
+//     input:focus {
+//       outline: none;
+//     }
+//   }
+
+//   td .edit-container {
+//     padding: 4px 4px 4px 4px;
+//     width: 100%;
+//     background-color: #fff;
+//     border: 1px solid #ccc;
+//     border-radius: 3px;
+    
+//     .edit-wrapper {
+//       float: left;
+//       width: calc(100% - 68px);
+
+//       input {
+//         width: 100%;
+//         height: 30px;
+//         border: none;
+//       }
+//     }
+
+//     button {
+//       border: none;
+//     }
+//   }
+
+//   td.button-container {
+//     width: 40px;
+
+//   }
+// }
+
+// .modal-background {
+//   position: fixed;
+//   top: 0;
+//   width: 100vw;
+//   height: 100vh;
+//   background-color: rgba(0, 0, 0, 0.3);
+//   z-index: 10;
+// }
+
+// .create-new-modal {
+//   position: relative;
+//   margin: auto;
+
+//   width: 640px;
+//   // height: 600px;
+
+//   background-color: white;
+//   opacity: 1;
+//   border-radius: 3px;
+//   z-index: 100;
+
+//   .control-panel {
+//     width: 100%;
+//     min-height: 37px;
+//   }
+
+//   .variable-form {
+//     padding: 0 10px 20px;
+//     width: 100%;
+
+//     background-color: #e6e6e6;
+
+//     .label {
+//       padding: 10px 0 0 0;
+//       display: block;
+
+//       color: #595959;
+//       font-size: 13px;
+//       font-weight: 300;
+//       text-align: left;
+//       line-height: 17px;
+//     }
+
+//     input {
+//       padding: 3px 6px;
+//       width: 100%;
+//       height: 28px;
+//       border: 1px solid #b3b3b3;
+//       border-radius: 3px;
+//     }
+
+//     textarea {
+//       width: 100%;
+//       resize: none;
+//       box-sizing: border-box;
+//     }
+
+//     .editor-container {
+//       position: relative;
+//       padding: 6px 6px 4px;
+//       width: 100%;
+//       height: 72px;
+
+//       border: 1px solid #b3b3b3;
+//       border-radius: 3px;
+//       background-color: #fff;
+
+//       &:focus-within {
+//         border: 1px solid #52a2cc;
+//       }
+
+//       .textarea-wrapper {
+//         width: calc(100% - 33px);
+//         height: 100%;
+//         float: left;
+
+//         .definition-textarea {
+//           height: 100%;
+
+//           border: none;
+//           overflow: auto;
+
+//           &:focus {
+//             outline: none;
+//           }
+//         }
+//       }
+
+//       .edit-expression-button {
+//         position: absolute;
+//         bottom: 8px;
+//         background: none;
+//         border: none;
+//       }
+//     }
+
+//     .description-textarea {
+//       padding: 6px 6px 4px;
+//       width: 100%;
+//       height: 72px;
+
+//       border: 1px solid #b3b3b3;
+//       border-radius: 3px;
+
+//       &:focus {
+//         outline: none;
+//         border: 1px solid #52a2cc;
+//       }
+//     }
+//   }
+// }

@@ -8,6 +8,9 @@ import { connect } from 'react-redux';
 // CreateNewRow Component
 import CreateNewRow from './CreateNewRow';
 
+// CSS
+import './css/VariableTable.css';
+
 /* ===========================
     VariableTable Component
 =========================== */

@@ -1,0 +1,10 @@
+.table {
+  margin: 20px 40px;
+  width: calc(100% - 80px);
+
+  thead {
+    th:nth-of-type(1) {
+      width: 25%;
+    }
+  }
+}
