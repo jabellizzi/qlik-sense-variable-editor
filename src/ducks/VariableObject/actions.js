@@ -17,9 +17,17 @@ const getVariables = () => ({
 const createVariable = (newVariable) => ({
   type: types.CREATE_VARIABLE,
   payload: newVariable
-})
+});
+
+
+// Delete Variable
+const deleteVariable = (variableId) => ({
+  type: types.DELETE_VARIABLE,
+  payload: variableId
+});
 
 export {
   getVariables,
-  createVariable
+  createVariable,
+  deleteVariable
 };

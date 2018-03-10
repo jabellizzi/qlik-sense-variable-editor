@@ -10,7 +10,8 @@ import * as types from './types';
 =========================== */
 // Initial state
 const initialState = {
-  variableList: []
+  variableList: [],
+  editing: false
 };
 
 /* VariableObject State
@@ -20,6 +21,8 @@ const variableObjectState = (state = initialState, action) => {
   switch(action.type) {
     // when VARIABLES_RECEIVED..
     case types.VARIABLES_RECEIVED: return {
+      ...state,
+      
       variableList: action.payload.map(variable => ({
         name: variable.qName,
         definition: variable.qDefinition,

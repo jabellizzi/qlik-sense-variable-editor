@@ -46,6 +46,7 @@ class VariableTable extends Component {
               <VariableRow
                 key={ variable.id }
                 variable={ variable }
+                deleteVariable={ this.props.deleteVariable }
               />
             )) }
           </tbody>
@@ -62,7 +63,8 @@ class VariableTable extends Component {
 const mapStateToProps = state => state;
 
 const mapDispatchToProps = {
-  getVariables: actions.getVariables
+  getVariables: actions.getVariables,
+  deleteVariable: actions.deleteVariable
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(VariableTable);

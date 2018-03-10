@@ -2,14 +2,14 @@
     Import
 =========================== */
 // ========= RxJS =========
-import {
+import { 
   withLatestFrom,
   map,
   switchMap
 } from 'rxjs/operators';
 
 // ========= RxQ =========
-import { createVariableEx } from 'rxq/Doc';
+import { destroyVariableById } from 'rxq/Doc';
 
 // VariableObject Types
 import * as types from '../types';
@@ -17,18 +17,17 @@ import * as types from '../types';
 import { openDocEpic } from '../../OpenDoc/epics';
 
 /* ===========================
-    Create Variable Epic
+    Delete Variable Epic
 =========================== */
-const createVariableEpic = (action$, state$) => {
-  return action$.ofType(types.CREATE_VARIABLE).pipe(
+const deleteVariableEpic = (action$, state$) => {
+  return action$.ofType(types.DELETE_VARIABLE).pipe(
     // Get handle from doc
     withLatestFrom(openDocEpic(action$)),
-    map(a => ({ handle: a[1].handle, variable: a[0].payload })),
-    // Create Variable
-    switchMap(obj => createVariableEx(obj.handle, obj.variable)),
-    // Clear input fields
-    map(() => ({ type: 'CLEAR_NEW_VARIABLES' }))
+    map(a => ({ variableId: a[0].payload, handle: a[1].handle })),
+    // Destroy
+    switchMap(obj => destroyVariableById(obj.handle, obj.variableId)),
+    map(() => ({ type: 'DELETED' }))
   )
 };
 
-export { createVariableEpic };
+export { deleteVariableEpic };

@@ -1,7 +1,8 @@
 import React from 'react';
 
 function VariableRow({
-  variable
+  variable,
+  deleteVariable
 }) {
   let input;
 
@@ -62,7 +63,7 @@ function VariableRow({
         <button
           type="button"
           className="btn btn-default btn-sm"
-          onClick={ () => console.log('delete') }
+          onClick={ () => deleteVariable(variable.id) }
         ><span className="glyphicon glyphicon-trash"></span></button>
       </td>
     </tr>
