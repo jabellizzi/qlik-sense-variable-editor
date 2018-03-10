@@ -47,6 +47,7 @@ class VariableTable extends Component {
                 key={ variable.id }
                 variable={ variable }
                 editVariable={ this.props.editVariable }
+                cancelEdit={ this.props.cancelEdit }
                 deleteVariable={ this.props.deleteVariable }
               />
             )) }
@@ -66,6 +67,7 @@ const mapStateToProps = state => state;
 const mapDispatchToProps = {
   getVariables: actions.getVariables,
   editVariable: actions.editVariable,
+  cancelEdit: actions.cancelEdit,
   deleteVariable: actions.deleteVariable
 };
 

@@ -5,6 +5,7 @@ import './css/VariableRow.css';
 function VariableRow({
   variable,
   editVariable,
+  cancelEdit,
   deleteVariable
 }) {
   let input;
@@ -40,7 +41,7 @@ function VariableRow({
             <button
               type="button"
               className="btn btn-default btn-sm"
-              onClick={ () => console.log('cancle edit') }
+              onClick={ () => cancelEdit(variable.id) }
             ><span className="glyphicon glyphicon-remove-circle"></span></button>
           </div>
         </td>

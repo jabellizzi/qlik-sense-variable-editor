@@ -27,6 +27,13 @@ const editVariable = (variableId) => ({
 });
 
 
+// Cancel Edit
+const cancelEdit = (variableId) => ({
+  type: types.CANCEL_EDIT,
+  payload: variableId
+});
+
+
 // Delete Variable
 const deleteVariable = (variableId) => ({
   type: types.DELETE_VARIABLE,
@@ -37,5 +44,6 @@ export {
   getVariables,
   createVariable,
   editVariable,
+  cancelEdit,
   deleteVariable
 };

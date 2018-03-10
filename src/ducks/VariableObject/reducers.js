@@ -32,9 +32,11 @@ const variableObjectState = (state = initialState, action) => {
       }))
     }
 
+
     /* EDIT_VARIABLE */
     case types.EDIT_VARIABLE: return {
       ...state,
+
       // for each variable..
       variableList: state.variableList.map(variable => {
         // if this is the variable we are editing..
@@ -47,8 +49,33 @@ const variableObjectState = (state = initialState, action) => {
         }
         return variable;
       }),
+
+      // set app edit status to true
       editing: true
     }
+
+
+    /* CANCEL_EDIT */
+    case types.CANCEL_EDIT: return {
+      ...state,
+
+      // for each variable..
+      variableList: state.variableList.map(variable => {
+        // if this is the variable we were editing..
+        if(action.payload === variable.id) {
+          return {
+            ...variable,
+            // set its edit state to false
+            editing: false
+          }
+        }
+        return variable;
+      }),
+
+      // set app edit status to false
+      editing: false
+    }
+
 
     /* DEFAULT */
     default: return state;
