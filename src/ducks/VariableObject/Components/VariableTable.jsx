@@ -7,8 +7,9 @@ import { connect } from 'react-redux';
 
 // VariableObject Actions
 import * as actions from '../actions';
-// CreateNewRow Component
+// Components
 import CreateNewRow from './CreateNewRow';
+import VariableRow from './VariableRow';
 
 // CSS
 import './css/VariableTable.css';
@@ -23,7 +24,6 @@ class VariableTable extends Component {
     this.props.getVariables();
   }
   render() {
-    console.log(this.props);
     return (
       <div>
         <table className="table table-hover">
@@ -41,6 +41,13 @@ class VariableTable extends Component {
           {/* Body */}
           <tbody>
             <CreateNewRow />
+
+            { this.props.variableObjectState.variableList.map(variable => (
+              <VariableRow
+                key={ variable.id }
+                variable={ variable }
+              />
+            )) }
           </tbody>
         </table>
       </div>
