@@ -1,6 +1,8 @@
 .variable-table {
   tbody {
     tr {
+      height: 48px;
+      
       td {
         line-height: 30px;
       }
@@ -21,6 +23,18 @@
 
         input:focus {
           outline: none;
+        }
+      }
+
+      .edit-button,
+      .delete-button {
+        display: none;
+      }
+
+      &:hover {
+        .edit-button,
+        .delete-button {
+          display: inline-block;
         }
       }
     }

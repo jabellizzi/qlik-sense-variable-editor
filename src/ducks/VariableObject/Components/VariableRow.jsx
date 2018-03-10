@@ -4,12 +4,14 @@ import './css/VariableRow.css';
 
 function VariableRow({
   variable,
+  editing,
   editVariable,
+  saveEdit,
   cancelEdit,
   deleteVariable
 }) {
   let input;
-
+  
   return (
     <tr className={ variable.editing ? "editing" : "" }>
       {/* Variable Name */}
@@ -34,7 +36,7 @@ function VariableRow({
             <button
               type="button"
               className="btn btn-default btn-sm"
-              onClick={ () => console.log('save edit') }
+              onClick={ () => saveEdit({ id: variable.id, value: input.value }) }
             ><span className="glyphicon glyphicon-floppy-save"></span></button>
 
             {/* Cancel button */}
@@ -57,7 +59,7 @@ function VariableRow({
       <td className="button-container">
         <button
           type="button"
-          className="btn btn-default btn-sm"
+          className={ "edit-button btn btn-default btn-sm " +(editing ? "disabled" : "") }
           onClick={ () => editVariable(variable.id) }
         ><span className="glyphicon glyphicon-pencil"></span></button>
       </td>
@@ -66,7 +68,7 @@ function VariableRow({
       <td className="button-container">
         <button
           type="button"
-          className="btn btn-default btn-sm"
+          className={ "delete-button btn btn-default btn-sm " +(editing ? "disabled" : "") }
           onClick={ () => deleteVariable(variable.id) }
         ><span className="glyphicon glyphicon-trash"></span></button>
       </td>

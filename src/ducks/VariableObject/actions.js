@@ -27,6 +27,13 @@ const editVariable = (variableId) => ({
 });
 
 
+// Save Edit
+const saveEdit = (newVariable) => ({
+  type: types.SAVE_EDIT,
+  payload: newVariable
+});
+
+
 // Cancel Edit
 const cancelEdit = (variableId) => ({
   type: types.CANCEL_EDIT,
@@ -44,6 +51,7 @@ export {
   getVariables,
   createVariable,
   editVariable,
+  saveEdit,
   cancelEdit,
   deleteVariable
 };

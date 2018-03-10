@@ -1,18 +1,24 @@
-.variable-table tbody tr td {
-  line-height: 30px; }
-
-.variable-table tbody tr.editing td:nth-of-type(1),
-.variable-table tbody tr.editing td:nth-of-type(3),
-.variable-table tbody tr.editing td:nth-of-type(4),
-.variable-table tbody tr.editing td:nth-of-type(5) {
-  padding-top: 13px; }
-
-.variable-table tbody tr.editing td:nth-of-type(2) {
-  padding-left: 4px; }
-  .variable-table tbody tr.editing td:nth-of-type(2) .edit-container:focus-within {
-    border: 1px solid #52a2cc; }
-  .variable-table tbody tr.editing td:nth-of-type(2) input:focus {
-    outline: none; }
+.variable-table tbody tr {
+  height: 48px; }
+  .variable-table tbody tr td {
+    line-height: 30px; }
+  .variable-table tbody tr.editing td:nth-of-type(1),
+  .variable-table tbody tr.editing td:nth-of-type(3),
+  .variable-table tbody tr.editing td:nth-of-type(4),
+  .variable-table tbody tr.editing td:nth-of-type(5) {
+    padding-top: 13px; }
+  .variable-table tbody tr.editing td:nth-of-type(2) {
+    padding-left: 4px; }
+    .variable-table tbody tr.editing td:nth-of-type(2) .edit-container:focus-within {
+      border: 1px solid #52a2cc; }
+    .variable-table tbody tr.editing td:nth-of-type(2) input:focus {
+      outline: none; }
+  .variable-table tbody tr .edit-button,
+  .variable-table tbody tr .delete-button {
+    display: none; }
+  .variable-table tbody tr:hover .edit-button,
+  .variable-table tbody tr:hover .delete-button {
+    display: inline-block; }
 
 .variable-table td .edit-container {
   padding: 4px 4px 4px 4px;
