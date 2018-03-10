@@ -1,0 +1,34 @@
+.variable-table tbody tr td {
+  line-height: 30px; }
+
+.variable-table tbody tr.editing td:nth-of-type(1),
+.variable-table tbody tr.editing td:nth-of-type(3),
+.variable-table tbody tr.editing td:nth-of-type(4),
+.variable-table tbody tr.editing td:nth-of-type(5) {
+  padding-top: 13px; }
+
+.variable-table tbody tr.editing td:nth-of-type(2) {
+  padding-left: 4px; }
+  .variable-table tbody tr.editing td:nth-of-type(2) .edit-container:focus-within {
+    border: 1px solid #52a2cc; }
+  .variable-table tbody tr.editing td:nth-of-type(2) input:focus {
+    outline: none; }
+
+.variable-table td .edit-container {
+  padding: 4px 4px 4px 4px;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 3px; }
+  .variable-table td .edit-container .edit-wrapper {
+    float: left;
+    width: calc(100% - 68px); }
+    .variable-table td .edit-container .edit-wrapper input {
+      width: 100%;
+      height: 30px;
+      border: none; }
+  .variable-table td .edit-container button {
+    border: none; }
+
+.variable-table td.button-container {
+  width: 40px; }

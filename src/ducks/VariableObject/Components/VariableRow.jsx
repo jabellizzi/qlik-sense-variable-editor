@@ -1,7 +1,10 @@
 import React from 'react';
 
+import './css/VariableRow.css';
+
 function VariableRow({
   variable,
+  editVariable,
   deleteVariable
 }) {
   let input;
@@ -54,7 +57,7 @@ function VariableRow({
         <button
           type="button"
           className="btn btn-default btn-sm"
-          onClick={ () => console.log('edit') }
+          onClick={ () => editVariable(variable.id) }
         ><span className="glyphicon glyphicon-pencil"></span></button>
       </td>
 

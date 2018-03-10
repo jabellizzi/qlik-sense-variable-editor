@@ -26,7 +26,7 @@ class VariableTable extends Component {
   render() {
     return (
       <div>
-        <table className="table table-hover">
+        <table className="variable-table table table-hover">
           {/* Head */}
           <thead>
             <tr>
@@ -46,6 +46,7 @@ class VariableTable extends Component {
               <VariableRow
                 key={ variable.id }
                 variable={ variable }
+                editVariable={ this.props.editVariable }
                 deleteVariable={ this.props.deleteVariable }
               />
             )) }
@@ -64,6 +65,7 @@ const mapStateToProps = state => state;
 
 const mapDispatchToProps = {
   getVariables: actions.getVariables,
+  editVariable: actions.editVariable,
   deleteVariable: actions.deleteVariable
 };
 

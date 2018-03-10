@@ -20,6 +20,13 @@ const createVariable = (newVariable) => ({
 });
 
 
+// Edit Variable
+const editVariable = (variableId) => ({
+  type: types.EDIT_VARIABLE,
+  payload: variableId
+});
+
+
 // Delete Variable
 const deleteVariable = (variableId) => ({
   type: types.DELETE_VARIABLE,
@@ -29,5 +36,6 @@ const deleteVariable = (variableId) => ({
 export {
   getVariables,
   createVariable,
+  editVariable,
   deleteVariable
 };
