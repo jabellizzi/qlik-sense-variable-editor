@@ -21,7 +21,7 @@ class OpenDocButton extends Component {
       <button 
         type="button" 
         className="btn btn-primary open-doc-button" 
-        onClick={ () => this.props.openDoc('db8433fa-55bd-4420-9bb3-03ca764f5511') }
+        onClick={ () => this.props.openDoc(this.props.appId) }
       >Open App
       </button>
     )

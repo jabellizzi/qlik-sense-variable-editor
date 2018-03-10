@@ -3,15 +3,12 @@
 =========================== */
 // ========= RxJS =========
 // Operators
-import 'rxjs/add/operator/combineLatest';
-import 'rxjs/add/operator/map';
-
-// Pipe Operators
 import {
-  shareReplay,
+  combineLatest,
+  map,
   switchMap,
-  startWith,
-  map
+  shareReplay,
+  startWith
 } from 'rxjs/operators';
 
 
@@ -21,9 +18,9 @@ import { getLayout } from 'rxq/GenericObject';
 
 
 // VariableObject Types
-import * as types from './types';
+import * as types from '../types';
 // OpenDoc Epic
-import { openDocEpic } from '../OpenDoc/epics';
+import { openDocEpic } from '../../OpenDoc/epics';
 
 // Variable Session Object config
 const variableObjectConfig = {
@@ -41,35 +38,32 @@ const variableObjectConfig = {
   }
 }
 
-
 /* ===========================
     Get Variables Epic
 =========================== */
 const getVariablesEpic = (action$, state$) => {
-  return action$.ofType(types.GET_VARIABLES)
-    // Use latest doc handle
-    .combineLatest(openDocEpic(action$))
-    // map doc handle
-    .map(([, doc]) => doc.handle)
+  return action$.ofType(types.GET_VARIABLES).pipe(
+    combineLatest(openDocEpic(action$)),
+    map(([, doc]) => doc.handle),
     // Create Session Object
-    .switchMap(h => createSessionObject(h, variableObjectConfig)).pipe(
-      shareReplay(1),
-      // trigger on invalidated
-      switchMap(h => h.invalidated$.pipe(
-        startWith(h)
-      )),
-      // Get object layout
-      switchMap(h => getLayout(h)),
-      map(obj => obj.qVariableList.qItems)
-    )
+    switchMap(h => createSessionObject(h, variableObjectConfig)),
+    shareReplay(1),
+    // trigger on invalidated
+    switchMap(h => h.invalidated$.pipe(
+      startWith(h)
+    )),
+    // Get object layout
+    switchMap(h => getLayout(h)),
+    map(layout => layout.qVariableList.qItems),
     /* return
         - VARIABLES_RECEIVED action
         - array of variables
     */
-    .map(variableList => ({
+    map(variableList => ({
       type: types.VARIABLES_RECEIVED,
       payload: variableList
-    }));
-}
+    }))
+  )
+};
 
 export { getVariablesEpic };

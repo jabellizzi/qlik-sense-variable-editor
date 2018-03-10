@@ -26,7 +26,7 @@ class SessionWrapper extends Component {
   render() {
     return (
       <div>
-        <OpenDocButton appId="db8433fa-55bd-4420-9bb3-03ca764f5511" />
+        <OpenDocButton appId={ this.props.config.appname } />
         { this.props.documentState.open && <VariableTable /> }
       </div>
     )

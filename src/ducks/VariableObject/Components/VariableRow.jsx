@@ -15,6 +15,7 @@ function VariableRow({
         // Edit Mode
         <td>
           <div className="edit-container">
+          
             {/* Input */}
             <div className="edit-wrapper">
               <input
@@ -23,12 +24,14 @@ function VariableRow({
                 defaultValue={ variable.definition }
               />
             </div>
+
             {/* Save button */}
             <button
               type="button"
               className="btn btn-default btn-sm"
               onClick={ () => console.log('save edit') }
             ><span className="glyphicon glyphicon-floppy-save"></span></button>
+
             {/* Cancel button */}
             <button
               type="button"

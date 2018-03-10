@@ -2,16 +2,11 @@
     Import
 =========================== */
 // ========= RxJS =========
-// import { Observable } from 'rxjs';
 // Operators
-import 'rxjs/add/operator/withLatestFrom';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/ignoreElements';
-import 'rxjs/add/operator/map';
-
-// Pipe Operators
 import {
+  withLatestFrom,
   shareReplay,
+  switchMap,
   map
 } from 'rxjs/operators';
 
@@ -31,34 +26,35 @@ import { connectSessionEpic } from '../SessionWrapper/epics';
     Open Doc Epic
 =========================== */
 const openDocEpic = (action$, state$) => {
-  return action$.ofType(types.OPEN_DOC)
+  return action$.ofType(types.OPEN_DOC).pipe(
     // Use latest Session handle
-    .withLatestFrom(connectSessionEpic(action$))
+    withLatestFrom(connectSessionEpic(action$)),
     // payload contains docId, handle contains session handle
-    .map(m => ({ payload: m[0].payload, handle: m[1].handle }))
+    map(m => ({ payload: m[0].payload, handle: m[1].handle })),
     // openDoc using session handle and docId
-    .switchMap(obj => openDoc(obj.handle, obj.payload).pipe(
+    switchMap(obj => openDoc(obj.handle, obj.payload).pipe(
       shareReplay(1)
-    ))
+    )),
     // getAppProperties()
-    .switchMap(h => getAppProperties(h).pipe(
+    switchMap(h => getAppProperties(h).pipe(
       // map to return docName and doc handle
       map(props => ({
         name: props.qTitle,
         handle: h
       })),
       shareReplay(1)
-    ))
+    )),
     /* return
         - DOC_OPENED action
         - docName
         - doc handle
     */
-    .map(doc => ({ 
+    map(doc => ({ 
       type: types.DOC_OPENED,
       payload: doc.name,
       handle: doc.handle
     }))
+  )
 }
 
 export { openDocEpic };
