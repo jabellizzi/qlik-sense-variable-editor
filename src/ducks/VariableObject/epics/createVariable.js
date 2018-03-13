@@ -27,7 +27,7 @@ const createVariableEpic = (action$, state$) => {
     // Create Variable
     switchMap(obj => createVariableEx(obj.handle, obj.variable)),
     // Clear input fields
-    map(() => ({ type: 'CLEAR_NEW_VARIABLES' }))
+    map(() => ({ type: types.CLEAR_NEW_VARIABLE }))
   )
 };
 

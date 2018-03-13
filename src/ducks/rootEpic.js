@@ -9,6 +9,7 @@ import { connectSessionEpic } from './SessionWrapper/epics';
 import { openDocEpic } from './OpenDoc/epics';
 import { getVariablesEpic } from './VariableObject/epics/getVariables';
 import { createVariableEpic } from './VariableObject/epics/createVariable';
+import { clearNewVariableEpic } from './VariableObject/epics/clearNewVariable';
 import { saveEditEpic } from './VariableObject/epics/saveEdit';
 import { deleteVariableEpic } from './VariableObject/epics/deleteVariable';
 
@@ -21,6 +22,7 @@ const rootEpic = combineEpics(
     openDocEpic,
     getVariablesEpic,
     createVariableEpic,
+    clearNewVariableEpic,
     saveEditEpic,
     deleteVariableEpic
 );

@@ -20,6 +20,12 @@ const createVariable = (newVariable) => ({
 });
 
 
+// Clear New Variable
+const clearNewVariable = () => ({
+  type: types.CLEAR_NEW_VARIABLE
+})
+
+
 // Edit Variable
 const editVariable = (variableId) => ({
   type: types.EDIT_VARIABLE,
@@ -50,6 +56,7 @@ const deleteVariable = (variableId) => ({
 export {
   getVariables,
   createVariable,
+  clearNewVariable,
   editVariable,
   saveEdit,
   cancelEdit,

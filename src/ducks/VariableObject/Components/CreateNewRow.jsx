@@ -6,7 +6,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // VariableObject Actions
-import { createVariable } from '../actions';
+import { 
+  createVariable,
+  clearNewVariable
+} from '../actions';
 
 // CSS
 import './css/CreateNewRow.css';
@@ -70,7 +73,7 @@ class CreateNewRow extends Component {
           <button
             type="button"
             className="btn btn-default btn-sm"
-            onClick={ () => console.log('cancel') }
+            onClick={ () => this.props.clearNewVariable() }
           ><span className="glyphicon glyphicon-remove-sign"></span></button>
         </td>
       </tr>
@@ -85,7 +88,8 @@ class CreateNewRow extends Component {
 const mapStateToProps = state => state;
 
 const mapDispatchToProps = {
-  createVariable
+  createVariable,
+  clearNewVariable
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateNewRow);
